@@ -1,7 +1,4 @@
 ﻿using AutoMapper;
-using AutoMapper.Internal;
-using Hangfire;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SharedLibrary.Constants.Role;
@@ -12,7 +9,6 @@ using SharedLibrary.Response.Identity;
 using SharedLibrary.Wrappers;
 using UserService.Application.Interfaces;
 using UserService.Domains.Entities;
-using static MassTransit.ValidationResultExtensions;
 
 namespace UserService.Application.Implements;
 
@@ -51,7 +47,7 @@ public class UserService(UserManager<User> userManager,
             IsActive = request.ActivateUser,
             EmailConfirmed = request.AutoConfirmEmail,
             Address = request.Address,
-            DateOfBirth = request.DateOfBirth
+            DateOfBirth = request.DateOfBirth?.ToUniversalTime()
         };
 
         if (!string.IsNullOrWhiteSpace(request.PhoneNumber))
