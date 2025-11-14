@@ -8,11 +8,11 @@
 
 	<ItemGroup>
 		<PackageReference Include="Grpc.AspNetCore" Version="2.67.0" />
-		<PackageReference Include="Orchestration" Version="1.1.4" />
+		<!--<PackageReference Include="Orchestration" Version="1.1.4" />-->
 	</ItemGroup>
 
 	<ItemGroup>
-		<!--<ProjectReference Include="..\..\..\Orchestration\Orchestration.ServiceDefaults\Orchestration.ServiceDefaults.csproj" />-->
+		<ProjectReference Include="..\..\..\..\Orchestration\Orchestration.ServiceDefaults\Orchestration.ServiceDefaults.csproj" />
 		<ProjectReference Include="..\UserService.Infrastructure\UserService.Infrastructure.csproj" />
 	</ItemGroup>
 
